@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {  useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ProviderItem from './Provideritem';
 
 function Home() {
@@ -21,8 +21,6 @@ function Home() {
         console.error('Error fetching providers:', error);
         setIsLoading(false); // Set loading state to false on error
       });
-
-
   }, []);
 
   useEffect(() => {
@@ -30,7 +28,7 @@ function Home() {
 
     // Toggle the 'darkened-home' class on the home element
     document.querySelector('.home').classList.toggle('darkened-home', isSidebarOpen);
-  },[isSidebarOpen])
+  }, [isSidebarOpen]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -48,10 +46,6 @@ function Home() {
     document.querySelector('.home').classList.toggle('darkened-home', !isSidebarOpen);
   };
 
-  
-
-
-
   return (
     <div className="home">
       <button className="explore-button" onClick={toggleSidebar}>
@@ -60,13 +54,11 @@ function Home() {
       <div className={`sidebar ${isSidebarOpen ? 'expanded' : ''}`}>
         <ul className="provider-list">
           <button className="close-button" onClick={closeSidebar}></button>
-          <h1>Select Provider</h1>
+          <h1 className="providerHeader">Select Provider</h1>
           {isLoading ? ( // Display a loader while isLoading is true
             <div>Loading providers...</div>
           ) : (
-            providers?.map((provider) => (
-              <ProviderItem key={provider} provider={provider} />
-            ))
+            providers?.map((provider) => <ProviderItem key={provider} provider={provider} />)
           )}
         </ul>
       </div>

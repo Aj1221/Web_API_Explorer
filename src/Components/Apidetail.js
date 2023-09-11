@@ -41,9 +41,6 @@ function ApiDetail() {
     window.location.href = '/?sidebarOpen=true';
   };
 
-  console.log('data', apiDetails);
-  console.log('providerName', providerName);
-
   return (
     <div className="api-detail">
       <header>
@@ -59,7 +56,7 @@ function ApiDetail() {
           )
         )}
       </header>
-      <div>
+      <div className="innerContainer">
         <div className="box">
           <div className="description">
             <h4 className="headPara">Description</h4>
@@ -70,7 +67,12 @@ function ApiDetail() {
             {isLoading ? 'Loading...' : apiDetails?.swaggerUrl}
 
             {Object.keys(apiDetails).length > 0 && apiDetails['x-origin'][0]?.url && (
-              <a className="swaggerLink" href={apiDetails['x-origin'][0].url} target="_blank" rel="noopener noreferrer">
+              <a
+                className="swaggerLink"
+                href={apiDetails['x-origin'][0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {apiDetails['x-origin'][0]?.url}
               </a>
             )}

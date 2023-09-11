@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from "./Components/Home"
-import ApiDetail from './Components/Apidetail'
+import Home from './Components/Home';
+import ApiDetail from './Components/Apidetail';
 
 function App() {
   return (
@@ -16,6 +16,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
